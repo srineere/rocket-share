@@ -1,5 +1,6 @@
 # Rocket Share
 A quick and easy way to share files and documents among your peers.
+Visit the website <a href="https://r0cket-share.herokuapp.com/home"> here </a>.
 
 
 
