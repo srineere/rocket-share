@@ -1,0 +1,75 @@
+<%- include("./partials/head.ejs") %>
+<head> 	<title>Dashboard | Rocket Share</title> </head>
+
+<body>
+	<div class="toggle">
+		<i class="fas fa-bars fa-2x toggle"></i>
+	</div>
+
+	<%- include("./partials/navbar.ejs") %>
+
+	<main>
+
+		<li><%= user.email %></li> 
+		<div class="user-info">
+			<div class="profile-pic">
+				<% if (user.profilePic !== undefined) {%>
+					<img src="<%= user.profilePic %>" class="far pfp" alt="">
+				<% } else {%>
+					<i class="far fa-user fa-3x"></i>
+				<% } %>
+			</div>
+			<div class="details">
+				<div class="username"><%= user.name %></div>
+				<% if (user.email !== undefined) {%>
+					<div class="email"><%= user.email %></div><br><br>
+					<%= user.profilePic  %>
+				<% } %>
+			</div>
+		</div>
+		<% if (user.files_created.length > 0) { %>
+			<div class="info-table">
+				<div class="main-table">
+	                <table id="all-devices" >
+	                    <thead>
+	                        <tr>
+	                            <th>Name</th>
+	                            <!-- <th>Extension</th> -->
+	                            <th>Created on</th>
+	                            <th>Share</th>
+	                            <th>Action</th>
+	                            <!-- <th>test</th> -->
+	                        </tr>
+	                    </thead>
+	                    <!-- Fill the table Dynamically -->
+	                    <tbody class="tableData">
+						  	<% user.files_created.forEach(file => { %>
+						  		<tr>
+								    <td class="filename-td"><%= file.originalname %></td>
+								    <td><%= file.date %></td>
+								    <td class="share-btns">
+								    	<a class="download-btn" href="/file/<%= file.id %>" target="_blank">
+								    		<i class="fas fa-external-link-alt"></i>
+								    	</a>
+										<a class="download-btn whatsapp" href="whatsapp://send?text=https://rocketfileshare.herokuapp.com/file/<%= file.id %>">
+								    		<i class="fab fa-whatsapp"></i>
+								    	</a>
+								    </td>
+								    <td><a class="download-btn delete" data-id=<%= file.id %>>Delete</a> </td>
+						  		</tr>
+						  	<% }) %>
+	                    </tbody>
+	                </table>
+	            </div>
+			</div>
+		<% } else { %>
+			<div class="no-file">
+				<img class="empty" src="/static/assets/empty.svg" alt="">
+				<p class="empty-msg">It's quite empty here</p>
+			</div>
+		<% } %>
+	</main>
+
+	<%- include("./partials/footer.ejs") %>
+</body>
+

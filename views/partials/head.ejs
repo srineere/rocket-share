@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Share your file in less than 60 seconds." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="/static/favicon.svg" type="image/x-icon">
+
+    <!-- link -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    
+    <link rel="stylesheet" href="/static/css/journal.css" />
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/download.css">
+    <link rel="stylesheet" href="/static/css/share.css">
+
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/icomoon/style.css">
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" />
+	
+	<!-- script -->
+	<script src="/static/js/nav.js" defer></script>
+    <script src="/static/js/share.js" defer></script>  
+    <script src="/static/js/main.js" defer></script>  
+    
+    <script src="/static/js/bootstrap.min.js" defer></script>  
+    <script src="/static/js/jquery-3.3.1.min.js" defer></script>  
+    <script src="/static/js/owl.carousel.min.js" defer></script>  
+    <script src="/static/js/popper.min.js" defer></script>  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+  
+    <script defer>
+        AOS.init();
+        const collapsibles = document.querySelectorAll(".collapsible");
+        collapsibles.forEach((item) =>
+        item.addEventListener("click", function () {
+            this.classList.toggle("collapsible--expanded");
+        })
+        );
+        
+        const form = document.querySelector('form#frm');
+        form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (form.id.value.length > 0) {
+            window.location=`/file/${form.id.value}`;
+        } else {
+            alert('Please mention some id');
+        }
+        });
+        
+        function redirect(url) {
+        window.location = url;
+        }
+    </script>
+
+</head>

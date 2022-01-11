@@ -1,0 +1,35 @@
+<%- include("./partials/head.ejs") %>
+<head> <title>Download | Rocket Share </title> </head>
+<body>
+
+    <nav class="nav collapsible">
+        <div class="xx_nav_brand">
+            <a href="/home">
+                <img src="/static/assets/rocket.svg" id="xx_brand_logo">
+                <span href="/" class="normal-link">Rocket Share</a></span>
+            </a>
+            
+        </div>
+        <svg class="icon icon--white nav__toggler">
+        <use xlink:href="/static/assets/images/sprite.svg#menu"></use>
+      </svg>
+        
+      </nav>
+
+    <section class="download-container">
+        <img class="download__icon" src="/static/assets/download-sd.svg" draggable="false" alt="rocketshare-download">
+            <h2>Your file is ready to download</h2>
+            <div class="download__meta">
+                <h4><%= fileInfo.originalname %></h4>
+                <small><%= parseInt(fileInfo.size/1000000) %> MB </small>
+                <small>Or <%= parseInt(fileInfo.size/1000) %> KB</small>
+                <br>
+                <small>Or <%= fileInfo.size %> Bytes </small>
+            </div>
+            <div class="send-btn-container">
+                <a href="<%= fileInfo.url %>" class="button">Download</a>
+            </div>
+    </section>
+
+    <%- include("./partials/footer.ejs") %>
+</body>
